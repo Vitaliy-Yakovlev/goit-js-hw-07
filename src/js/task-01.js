@@ -1,14 +1,18 @@
-const checkQuantityElement = () => {
-  const categoriesRef = document.querySelector('#categories');
-  console.log('Количество списков:', categoriesRef.children.length);
+const listRef = document.querySelectorAll('.item');
+const categoriesRef = document.querySelector('#categories');
 
-  const titleHRef = document.querySelector('h2');
-  console.log('Категория:', titleHRef.textContent);
+function quantityElementsOfList() {
+  const categoriesLength = categoriesRef.children.length;
+  console.log(`В списке ${categoriesLength} категории.`);
 
-  const itemRef = document.querySelector('.item ul');
-  console.log('Количество элементов:', itemRef.children.length);
+  for (const elementList of listRef) {
+    const categoryName = elementList.querySelector('h2').textContent;
+    console.log(`Категория: ${categoryName}`);
 
-  return;
-};
+    const categoryLengthList = elementList.querySelector('.item ul').children
+      .length;
+    console.log(`Количество элементов: ${categoryLengthList}`);
+  }
+}
 
-console.log(checkQuantityElement());
+console.log(quantityElementsOfList());
